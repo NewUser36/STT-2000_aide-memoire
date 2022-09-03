@@ -1,0 +1,16 @@
+\section{Fondements probabilistes}
+\textbf{Définition de la fonction $\Gamma(p)$.} $\forall p > 0, \Gamma(p) = \int_0^\infty x^{p-1}e^x \, dx$.
+
+\textbf{Propriétés de la fonction $\Gamma(p)$.}
+\begin{itemize}
+	\item $\forall p > 0, \Gamma(p) = (p-1)\Gamma(p-1)$
+	\item $\forall p \in \mathbb{N}^*, \Gamma(p) = (p-1)!$
+	\item $\Gamma(1)=1$
+	\item $\Gamma(1/2)=\sqrt{\pi}$
+\end{itemize}
+
+\textbf{Définition de la fonction bêta.}  $\forall x,y<0, \beta(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$.
+
+\textbf{Fonction génératrice des moments (f.g.m.)} $M_X(t)=\e{e^{tX}} \, \forall t \in \mathbb{R}$ t.q. l'espérance existe.
+
+\textbf{Propriété de la f.g.m.} $\e{X^k} = \left.\frac{d^k}{dt^k}M_X(t)\right|_{t=0}$

@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+%formattage
+\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{relsize} % mathlarger
+
+\usepackage{fancyhdr}
+
+%fr
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\frenchspacing
+
+%math
+\usepackage{amsmath, amsfonts}
+
+\usepackage{dsfont} % indicator function : mathds 
+
+% autres
+\usepackage{graphicx}
+\usepackage{pdflscape} % begin{landscape} \end{landscape}
+\usepackage{parskip} % enleve les alinéas et mettre des espaces entre les paragraphes
+
+
+%%% commandes %%%
+\newcommand*{\red}[1]{\textcolor{red}{#1}}
+\newcommand*{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand*{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand*{\green}[1]{\textcolor{green}{#1}}
+
+\newcommand*{\var}[1]{\mathbb{V}\left[{#1}\right]} % renew au lieu de new car le package physics contient déjà \var
+\newcommand*{\cov}{\mathbb{C}\text{ov}}
+\newcommand*{\corr}{\mathbb{C}\text{orr}} 
+\newcommand*{\normal}{\mathcal{N}}
+\newcommand*{\uniform}{\mathcal{U}}
+
+
+\newcommand*{\ehat}[1]{\widehat{\mathbb{E}}\left[{#1}\right]}
+\newcommand*{\e}[1]{\mathbb{E}\left[{#1}\right]}
+\newcommand*{\p}[1]{\mathbb{P}\left[{#1}\right]}
+
+\newcommand{\indicator}[1]{\mathds{1}_{\{#1\}}}
+
+%% Options de mise en forme du mode français de babel. Consulter la
+%% documentation du paquetage babel pour les options disponibles.
+%% Désactiver (effacer ou mettre en commentaire) si l'option
+%% 'nobabel' est spécifiée au chargement de la classe.
+\frenchbsetup{%
+	StandardItemizeEnv=true,       % format standard des listes
+	StandardItemLabels=true,       % format standard des puces lors d'énumérations
+	ThinSpaceInFrenchNumbers=true, % espace fine dans les nombres
+	og=«, fg=»,                    % caractères « et » sont les guillemets
+	SmallCapsFigTabCaptions=false, % retire les noms des tableaux/figures en petites capitales (je n'aime vraiment pas ça!!!)
+}
+\addto\captionsfrench{\def\frenchtablename{Tableau}}
+
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[R]{Automne 2022}
+\fancyhead[L]{Aide-mémoire STT-2000}
+\fancyfoot[C]{\thepage}
+
+
+\input{1-fondements.tex}
+
+\input{2-lois-échantillonnales}
+
+\cleardoublepage
+\include{lois}
+\end{document}

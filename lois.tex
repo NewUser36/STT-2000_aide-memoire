@@ -1,0 +1,45 @@
+\begin{landscape}
+	\thispagestyle{empty}
+	
+	\begin{table}[]
+		\centering
+		\resizebox{1.5\textwidth}{!}{%
+		\renewcommand{\arraystretch}{2.5}
+		\begin{tabular}{c|c|c|c|c}
+			$X$ & $f_X(x)$ & $\e{X}$ & $\var{X}$ & $M_X(t)$  \\ \hline \hline
+			$\mathcal{N}(\mu,\sigma^2);\mu \in \mathbb{R},\sigma^2>0$ & $\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}
+			\right)\indicator{x\in\mathbb{R}}$ & $\mu$ & $\sigma^2$ & $\exp\left( \mu t + \frac{1}{2}\sigma^2t^2 \right)$ \\ \hline
+			$\mathcal{N}_p(\mathbf{m},\sigma^2\boldsymbol{\Sigma});\mathbf{m} \in \mathbb{R}^p,\sigma^2>0$ & $\frac{1}{(2\pi\sigma^2)^{p/2}|\boldsymbol{\Sigma}^{1/2}|}\sigma^{-p}\exp\left(-\frac{(\boldsymbol{x}-\mathbf{m})^\top\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\mathbf{m})}{2\sigma^2}\right) \indicator{x\in\mathbb{R}^p}$ & $\mathbf{m}$ & $\sigma^2\boldsymbol{\Sigma}$ & $\exp\left( \mathbf{m}^\top \boldsymbol{t} + \frac{1}{2}\sigma^2\boldsymbol{t}^\top\boldsymbol{\Sigma}\boldsymbol{t} \right)$ \\ \hline
+			$t_r; r \in \mathbb{N}^*$ & $\frac{\Gamma((r+1)/2)}{\Gamma(r/2)}\frac{1}{\sqrt{r\pi}}\frac{1}{(1+x^2/r)^{(r+1)/2}} \indicator{x\in\mathbb{R}}$ & 0 si $r>1$ & $\frac{r}{r-2}$ si $r>2$ & -- \\ \hline
+			Exponentielle$(\lambda);\lambda>0$ & $ \lambda e^{-\lambda x} \indicator{x>0}$ & $\frac{1}{\lambda}$ & $\frac{1}{\lambda^2}$ & $\frac{\lambda}{\lambda-t}; t < \lambda$ \\ \hline
+			Gamma$(\alpha,\lambda); \alpha>0, \lambda>0$ & $\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x} \indicator{x>0}$ & $\frac{\alpha}{\lambda}$ & $\frac{\alpha}{\lambda^2}$ & $\left( \frac{\lambda}{\lambda-t} \right)^\alpha ;t < \lambda$ \\ \hline
+			$\chi^2_k; k \in \mathbb{N}^*$ & $\frac{1}{\Gamma(k/2)2^{k/2}}x^{(k/2)-1}e^{-x/2} \indicator{x>0}$ & $k$ & $2k$ & $(1-2t)^{-k/2}; t<1/2$ \\ \hline 
+			$ F_{n,m}; n \in \mathbb{N}^* \in m \in \mathbb{N}^*$ & $\frac{\Gamma((n+m)/2)(n/m)^{n/2}}{\Gamma(n/2)\Gamma(m/2)}\frac{x^{n/2-1}}{(1+nx/m)^{(n+m)/2}} \indicator{x>0}$ & $\frac{m}{m-2}$ si $m>2$ & $\frac{2m^2(n+m-2)}{n(m-2)^2(m-4)}$ si $m>4$ & -- \\ \hline 
+			Beta$(\alpha,\beta); \alpha>0,\beta>0$ & $ \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} \indicator{0<x<1}$ & $\frac{\alpha}{\alpha+\beta}$ &  $\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$ & -- \\ \hline
+			Uniforme$(a,b); (a,b) \in \mathbb{R}^2$ & $\frac{1}{b-a} \indicator{a<x<b}$ & $\frac{a+b}{2}$ & $\frac{(b-a)^2}{12}$ & $\frac{e^{tb}-e^{ta}}{t(b-a)}$ \\ \hline \hline
+		\end{tabular}%
+		}%
+		\caption{Distribution de certaines lois continues}
+		\label{tab:lois-continues}
+	\end{table}
+	
+	\cleardoublepage
+	\thispagestyle{empty}
+	\begin{table}[]
+		\centering
+		\resizebox{1.3\textwidth}{!}{%
+			\renewcommand{\arraystretch}{2}
+			\begin{tabular}{c|c|c|c|c}
+				$X$ & $p_X(x)$ & $\e{X}$ & $\var{X}$ & $\e{\exp(tX)}$  \\ \hline \hline
+				Bernoulli$(p)$ & $p^x(1-p)^{1-x}\indicator{x\in\{0,1\}}$ & $p$ & $p(1-p)$ & $pe^t + 1-p$ \\ \hline
+				Binomiale$(n,p)$ & ${n \choose x} (1-p)^{n-x} p^x \indicator{x \in \mathbb{N}}$ & $np$ & $np(1-p)$ & $(pe^t + 1-p)^n$ \\ \hline 
+				Géométrique$(p)$ (échec) & $p(1-p)^{x} \indicator{x \in \mathbb{N}}$ & $\frac{1}{p}-1$ & $\frac{1-p}{p^2}$ & $\frac{p}{1-(1-p)e^t}$ \\ \hline
+				Géométrique$(p)$ (succès) & $p(1-p)^{x-1} \indicator{x \in \mathbb{N^*}}$ & $\frac{1}{p}$ & $\frac{1-p}{p^2}$ & $\frac{pe^t}{1-(1-p)e^t}$ \\ \hline
+				Uniforme$(m)$ & $\frac{1}{m} \indicator{x \in \{1,\dots,m\}}$ & $\frac{m+1}{2}$ & $\frac{m^2-1}{12}$ & $\frac{e^t(e^{mt}-1)}{e^t-1}$ \\ \hline
+				Poisson$(\lambda)$ & $e^{-\lambda} \lambda^x/x! \indicator{x \in \mathbb{N}}$ & $\lambda$ & $\lambda$ & $\exp(\lambda(e^t-1))$ \\ \hline\hline
+			\end{tabular}%
+		}
+		\caption{Distribution de certaines lois discrètes}
+		\label{tab:lois-discretes}
+	\end{table}
+\end{landscape}
