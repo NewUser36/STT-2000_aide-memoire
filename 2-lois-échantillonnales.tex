@@ -1,9 +1,8 @@
 \section{Lois échantillonnales}
 \textbf{Génération de nombres aléatoires.} Soit $X \sim F_X(x)$ une v.a. continue, et $U \sim \uniform(0,1)$. On simule une v.a. de distribution $F(x)$ en utilisant tirant des observations $u$, puis $x=F_X^{-1}(u)$.
 
-\red{Exercice [VG]. Vérifier qu'on peut aussi résoudre numériquement $F(x)-u=0$ pour obtenir les valeurs de $x$. Pourquoi voudrait-on procéder ainsi?} % Réarranger l'expression des notes de cours : X = F^{-1}(U). On procède ainsi pour éviter de devoir trouver l'inverse de F dans les cas où cette forme n'existe pas.
 
-\textbf{Théorème.} Soient $\{X_i;i\in\{1,\dots,n\}\}$ des variables aléatoires indépendantes avec $X_i \sim \normal(\mu_i,\sigma_i^2)$. Alors, $Y = a_0 + \sum_{i} a_iX_i \sim \normal(a_0 + \sum_i a_i\mu_i, \sum_i a_i^2\sigma_i^2)$.
+\textbf{Théorème.} Soient $X_1, \dots, X_n$ des variables aléatoires indépendantes avec $X_i \sim \normal(\mu_i,\sigma_i^2)$. Alors, $Y = a_0 + \sum_{i} a_iX_i \sim \normal(a_0 + \sum_i a_i\mu_i, \sum_i a_i^2\sigma_i^2)$.
 
 \subsection{Relations entre les différentes lois statistiques}
 
@@ -11,7 +10,7 @@
 
 \textbf{Théorème.} Soient $U \sim \chi^2_u$ et $V \sim \chi^2_v$. Alors, $U+V \sim \chi^2_{u+v}$.
 
-\textbf{Exemple.} Soient $\{X_1, \dots, X_n\} \overset{iid}{\sim} \normal(\mu, \sigma^2)$ et $S^2_* = \frac{1}{n}\sum_i(X_i-\mu)^2$. Alors, $nS^2_*/\sigma^2 \sim \chi^2_n$.
+\textbf{Exemple.} Soient $X_1, \dots, X_n \overset{iid}{\sim} \normal(\mu, \sigma^2)$ et $S^2_* = \frac{1}{n}\sum_i(X_i-\mu)^2$. Alors, $nS^2_*/\sigma^2 \sim \chi^2_n$.
 
 \textbf{Proposition.} Soient $W \perp V$ telles que $W \sim \normal(0,1)$ et $V \sim \chi^2_r$. Alors, $T=W/\sqrt{V/r} \sim t_r$.
 
@@ -29,7 +28,7 @@
 \textbf{Théorème.} Soient $X_1,\dots, X_n \overset{iid}{\sim} \normal(\mu,\sigma_X^2)$ et $Y_1,\dots, Y_n \overset{iid}{\sim} \normal(\mu,\sigma_Y^2)$ deux échantillons indépendants. Soient $S_X^2$ et $S_Y^2$ leur variance échantillonnale respective. Alors, $F=\frac{S^2_X/\sigma_X^2}{S^2_Y/\sigma_Y^2} \sim F_{n-1,m-1}$.
 
 \subsection{Autres résultats.}
-\textbf{Proposition.} Soient $\boldsymbol{X}=(X_1,\dots,X_n)^\top$ un vecteur de variables aléatoire (iid) issues d'une loi quelconque avec $\e{X_i}=\mu, \var{X_i}=\sigma^2, m_3^*=\e{(X_i-\mu)^3} < \infty, m_4*=\e{(X_i-\mu)^4} < \infty$. Soient $V^2_n=\frac{1}{n} \sum_i \left(X_i - \bar{X}_n \right)^2$ et $S^2_n = \frac{1}{n-1} \sum_i \left( X_i - \bar{X}^2 \right)^2$. Alors, 
+\textbf{Proposition.} Soient $\boldsymbol{X}=(X_1,\dots,X_n)^\top$ un vecteur de variables aléatoire (iid) issues d'une loi quelconque avec $\e{X_i}=\mu, \var{X_i}=\sigma^2, m_3^*=\e{(X_i-\mu)^3} < \infty, m_4^*=\e{(X_i-\mu)^4} < \infty$. Soient $V^2_n=\frac{1}{n} \sum_i \left(X_i - \bar{X}_n \right)^2$ et $S^2_n = \frac{1}{n-1} \sum_i \left( X_i - \bar{X}^2 \right)^2$. Alors, 
 \begin{itemize}
 	\item $\e{\bar{X}_n}=\mu$ et $\var{\bar{X}_n=\sigma^2/n}$
 	\item $\e{S_n^2}=\sigma^2$ et $\var{S_n^2}=m_4^*/n - \frac{n-3}{n(n-1)}\sigma^4$
