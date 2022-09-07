@@ -1,16 +1,81 @@
 \section{Fondements probabilistes}
-\textbf{Définition de la fonction $\Gamma(p)$.} $\forall p > 0, \Gamma(p) = \int_0^\infty x^{p-1}e^x \, dx$.
+\textbf{Définition de la fonction $\Gamma(z)$.} $\forall z > 0, \Gamma(z) = \int_0^\infty x^{z-1}e^x \, dx$.
 
-\textbf{Propriétés de la fonction $\Gamma(p)$.}
+\textbf{Propriétés de la fonction $\Gamma(z)$.}
 \begin{itemize}
-	\item $\forall p > 0, \Gamma(p) = (p-1)\Gamma(p-1)$
-	\item $\forall p \in \mathbb{N}^*, \Gamma(p) = (p-1)!$
+	\item $\forall z > 0, \Gamma(z) = (z-1)\Gamma(z-1)$
+	\item $\forall z \in \mathbb{N}^*, \Gamma(z) = (z-1)!$
 	\item $\Gamma(1)=1$
 	\item $\Gamma(1/2)=\sqrt{\pi}$
 \end{itemize}
 
 \textbf{Définition de la fonction bêta.}  $\forall x,y<0, \beta(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$.
 
+\textbf{Fonction de répartition marginale.} Soient $X_1, \dots, X_k$, avec $j<k$. Alors, $F_{1\dots,j}(x_1,\dots,x_j) = F_{\mathbf{X}}(x_1,\dots,x_j,\infty, \dots, \infty).$ Remplacer $F$ par $f$ pour la fonction de densité marginale.
+
+\textbf{Espérance d'une fonction d'une v.a.} $\e{g(X)} = 
+	\begin{cases}
+		\sum_x g(x) p_X(x) \text{ si $X$ est discrète} \\
+		\int_\mathbb{R} g(x) f_X(x) \; dx \text{ si $X$ est continue}
+	\end{cases}
+$.
+
+\red{\textbf{Inégalité de Jensen.} Soit $g$ une fonction convexe. Alors, $g(\e{X}) < \e{g(X)}$.} Inverser le sens de l'inégalité pour les fonctions concaves. Il y a égalité si $g(u)=u$.
+
+
 \textbf{Fonction génératrice des moments (f.g.m.)} $M_X(t)=\e{e^{tX}} \, \forall t \in \mathbb{R}$ t.q. l'espérance existe.
 
 \textbf{Propriété de la f.g.m.} $\e{X^k} = \left.\frac{d^k}{dt^k}M_X(t)\right|_{t=0}$
+
+\textbf{f.g.m. des moments conjoints.} $M(t_1,\dots,t_k) = \e{\exp(t_1X_1+\dots+t_kX_k)}$.
+
+\textbf{Propriété de la f.g.m. des moments conjoints.} $\left. \e{X_1^{j_1}, \dots, X_k^{j_k}} = \frac{\partial^{j_1+\dots j_k}}{\partial t_1^{j_1} \dots \partial t_k^{j_k}} M(t_1,\dots,t_k) \right|_{t_1=0,\dots,t_k=0}$
+
+\textbf{Indépendance de v.a. continues.} $X_1, \dots X_k$ sont des v.a. indépendantes si $f(x_1, \dots, x_k)=f_1(x_1)\dots f_k(x_k) \; \forall \; (x_1,\dots,x_k) \in \mathbb{R}^k$.
+
+\textbf{Conséquences de l'indépendance.} \red{(Remarque : les réciproques ne sont pas vraies!)}
+\begin{itemize}
+	\item $\e{g_1(X_1)\dots g_k(X_k)} = \e{g_1(X_1)} \dots \e{g_k(X_k)}$ 
+	\item $\cov(X_i,X_j) = 0 \; \forall \; i \ne j$
+	\item $ M(t_1, \dots, t_k) = M_{X_1}(t_1) \dots M_{X_k}(t_k)$
+\end{itemize}
+
+\textbf{Espérance conditionnelle/itérée.} $\e{X} = \mathbb{E}_Y \left\{ \mathbb{E}_{X|Y}[X|Y] \right\}$
+
+\textbf{Variance conditionnelle/itérée.} $\var{X} = \mathbb{V}_Y \{ \mathbb{E}_{X|Y}[X|Y] \} + \mathbb{E}_Y \left\{ \mathbb{V}_{X|Y}(X|Y) \right\}$
+
+\textbf{Espérance de variables aléatoires multidimensionnelles.} $\e{\mathbf{A} \mathbf{X} + \mathbf{B}} = \mathbf{A}\e{\mathbf{X}} + \mathbf{B}$.
+
+\textbf{Variance de variables aléatoires multidimensionnelles.} $\var{\mathbf{A} \mathbf{X} + \mathbf{B}} = \mathbf{A}\var{\mathbf{X}}\mathbf{A}'$.
+
+\textbf{Transformation de v.a. : Fonction de répartition.} Soit $X$ une v.a.r. avec loi connue. Soit $Y= h(X)$. On cherche $f_Y(y)$. $\p{Y \le y} = \p{h(X) \le y} = \p{X \le A_y},$ où $A_y=\{x:h(x)\le y\}$. On calcule ensuite $f(y) = F'(y)$.
+
+\red{Note pour les transformations de variables aléatoires : vérifier le domaine des variables.}
+
+\textbf{Transformation de v.a. : Jacobien.} Soient $\mathbf{X} = (X_1, \dots, X_k)'$ et $Y_i= h_i(\mathbf{X}), i \in \{1,\dots,k\}$, avec $h_i$ des fonctions \textbf{bijective}. Soient $X_i = g_i(\mathbf{Y})$ (en pratique, choisir intelligemment les fonctions $g_i$). Alors, $f_Y(y) = f_X\left[g(y)\right]|\det(J)|\mathds{1}_{R_y}(y)$, où $\det(J)$ est le déterminant du Jacobien :
+\begin{equation}
+	J = 
+	\begin{pmatrix}
+		\frac{\partial}{\partial y_1}g_1(y) & \cdots & \frac{\partial}{\partial y_k}g_1(y)\\
+		\vdots & \ddots & \vdots \\
+		\frac{\partial}{\partial y_1}g_k(y) & \cdots& \frac{\partial}{\partial y_k}g_k(y)
+	\end{pmatrix}.
+\end{equation}
+
+\textbf{Transformation de v.a. : Jacobien. (k=1).} $g$ est une fonction \textbf{bijective}... $Y=g(X)$. Alors, $f_Y(y) = f_X[g^{-1}(y)]\left|\frac{d}{dy}g^{-1}(y)\right|\mathds{1}_{R_y(y)}$.
+
+\textbf{Inégalité de Chebychev.} (Souvent utilisée pour montrer la convergence en probabilité.) Soit $X$ une v.a. de moyenne $\mu$ et de variance $\sigma^2< \infty$. Alors, $\p{|X-\mu| > \varepsilon } \le\sigma^2/n \; \forall \; \varepsilon > 0.$
+
+\textbf{Convergence en probabilité.} $X_n \overset{P}{\rightarrow} X \iff \text{plim}_{n \to \infty} X_n = X \iff \underset{n \to \infty}{\lim} \p{|X_n-X| > \varepsilon} = 0, \; \forall \varepsilon > 0.$
+
+\textbf{Loi faible des grands nombres.} $X_1, \dots, X_n$ i.i.d. de moyenne $\mu$ et de variance $\sigma^2 < \infty$. Soit $\bar{X}_n=(X_1+\dots+X_n)/n$. Alors, $\bar{X}_n \overset{P}{\to} \mu$.
+
+\textbf{Convergence en loi.} $X_n \overset{L}{\to} X \iff \underset{n \to \infty}{\lim} \p{X_n \le x} = F_X(x)$.
+
+\textbf{Théorème central limite.} Soient $X_1, \dots, X_n$ des v.a. iid de moyenne $\mu$ et de variance $\sigma^2 < \infty$. Alors, $\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \overset{L}{\to} Z$, où $Z \sim \normal(0,1)$.
+
+\textbf{Théorème de la fonction continue.} Soit $g$ une fonction continue. $X_n \overset{P}{\rightarrow} \mathbf{X} \Rightarrow g(\mathbf{X}_n) \overset{P}{\rightarrow} g(\mathbf{X})$ et  $g(\mathbf{X}_n) \overset{d}{\rightarrow} \mathbf{X} \Rightarrow g(\mathbf{X}_n) \overset{d}{\rightarrow} g(\mathbf{X})$.
+
+\textbf{Théorème de Slutsky.} Si $X_n \overset{d}{\rightarrow} X$ et $ Y_n \overset{P}{\rightarrow} c$, alors $X_nY_n \overset{d}{\to} cX$.
+
+%\textbf{Règle du Delta (univariée).} Si $\sqrt{n}(X_n-a) \overset{L}{\longrightarrow} \normal(0,v)$, alors $\sqrt{n}(g(X_n) - g(a)) \overset{L}{\longrightarrow} \normal(0, \left[g'(a)\right]^2v).$
