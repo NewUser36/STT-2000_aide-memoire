@@ -1,5 +1,5 @@
 \section{Fondements probabilistes}
-\textbf{Définition de la fonction $\Gamma(z)$.} $\forall z > 0, \Gamma(z) = \int_0^\infty x^{z-1}e^x \, dx$.
+\textbf{Définition de la fonction $\Gamma(z)$.} $\forall z > 0, \Gamma(z) = \int_0^\infty x^{z-1}e^{-x} \, dx$.
 
 \textbf{Propriétés de la fonction $\Gamma(z)$.}
 \begin{itemize}
@@ -11,7 +11,16 @@
 
 \textbf{Définition de la fonction bêta.}  $\forall x,y<0, \beta(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$.
 
+\textbf{Définition alternative de la fonction bêta.} $\beta(x,y) = \int_0^\infty t^{x-1}(1+t)^{-x-y} \; dt$.
+
+\textbf{Définition alternative de la fonction bêta.} $\beta(x,y) = \int_0^1 t^{x-1}(1-t)^{y-1} \; dt$.
+
 \textbf{Fonction de répartition marginale.} Soient $X_1, \dots, X_k$, avec $j<k$. Alors, $F_{1\dots,j}(x_1,\dots,x_j) = F_{\mathbf{X}}(x_1,\dots,x_j,\infty, \dots, \infty).$ Remplacer $F$ par $f$ pour la fonction de densité marginale.
+
+\red{\textbf{Fonction de densité marginale (2 dimensions).}} $f_X(x) = \int_{\mathbb{R}} f_{X,Y}(x,y) \; dy$.¸
+
+\red{\textbf{Densité conditionnelle.} $f_{Y|X=x}(y) = \frac{f_{X,Y}(x,y)}{f_X(x)}$.}
+
 
 \textbf{Espérance d'une fonction d'une v.a.} $\e{g(X)} = 
 	\begin{cases}
@@ -20,7 +29,7 @@
 	\end{cases}
 $.
 
-\red{\textbf{Inégalité de Jensen.} Soit $g$ une fonction convexe. Alors, $g(\e{X}) < \e{g(X)}$.} Inverser le sens de l'inégalité pour les fonctions concaves. Il y a égalité si $g(u)=u$.
+\red{\textbf{Inégalité de Jensen.} Soit $g$ une fonction convexe. Alors, $g(\e{X}) \le \e{g(X)}$.} Inverser le sens de l'inégalité pour les fonctions concaves. Il y a égalité si $g(u)=u$.
 
 
 \textbf{Fonction génératrice des moments (f.g.m.)} $M_X(t)=\e{e^{tX}} \, \forall t \in \mathbb{R}$ t.q. l'espérance existe.
